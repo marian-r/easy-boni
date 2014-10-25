@@ -1,0 +1,56 @@
+address {
+    font-size: 13px;
+}
+
+.sidebar, .content {
+    top: 50px;
+}
+.sidebar {
+    position: fixed;
+    width: 25%;
+    height: 100%;
+    background-color: #f8f8f8;
+}
+.sidebar li {
+    margin: 0;
+    padding: 0;
+}
+.sidebar li:hover {
+    background-color: #eee;
+}
+.sidebar label {
+    width: 100%;
+    padding: 10px 15px 10px 30px;
+}
+.content {
+    position: absolute;
+    right: 0;
+    width: 75%;
+}
+.map {
+    position: fixed;
+    height: 100%;
+}
+.restaurants-list, .restaurant-detail {
+    padding: 15px;
+}
+.restaurant-name, .restaurant-name:hover {
+    color: #ffffff;
+}
+.price {
+    font-size: 22px;
+}
+
+.restaurant-header {
+    height: 70px;
+    margin-top: -10px;
+}
+.stars-container {
+    font-size: 20px;
+    color: #428bca;
+    padding-top: 26px;
+    padding-left: 12px;
+}
+.author {
+    font-weight: bold;
+}
