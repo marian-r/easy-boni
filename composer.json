@@ -1,0 +1,22 @@
+{
+  "name": "marianr/easy-boni",
+  "description": "Slovenian Student Meals System web application",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Marian Rusnak",
+      "email": "grizly21@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "PATH=`pwd`/vendor/node/bin:$PATH ./node_modules/bower/bin/bower install"
+    ],
+    "post-update-cmd": [
+      "PATH=`pwd`/vendor/node/bin:$PATH ./node_modules/bower/bin/bower install"
+    ]
+  }
+}
