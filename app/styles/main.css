@@ -7,7 +7,7 @@ address {
 }
 .sidebar {
     position: fixed;
-    width: 25%;
+    width: 20%;
     height: 100%;
     background-color: #f8f8f8;
 }
@@ -25,7 +25,7 @@ address {
 .content {
     position: absolute;
     right: 0;
-    width: 75%;
+    width: 80%;
 }
 .map {
     position: fixed;
@@ -53,4 +53,10 @@ address {
 }
 .author {
     font-weight: bold;
+}
+.restaurant-menu {
+    width: 50%;
+}
+.restaurant-comments {
+    width: 50%;
 }
