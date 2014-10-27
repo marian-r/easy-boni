@@ -1,9 +1,11 @@
+body {
+    padding-top: 50px;
+}
 address {
     font-size: 13px;
 }
-
-.sidebar, .content {
-    top: 50px;
+.top-menu {
+    margin-bottom: 0;
 }
 .sidebar {
     position: fixed;
