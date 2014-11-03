@@ -12,7 +12,7 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         lodash: '../bower_components/lodash/dist/lodash.compat',
         requirejs: '../bower_components/requirejs/require',
-        'requirejs-text': '../bower_components/requirejs-text/text',
+        'text': '../bower_components/requirejs-text/text',
         underscore: '../bower_components/lodash/dist/lodash'
     },
     packages: []
@@ -20,8 +20,11 @@ require.config({
 
 require([
     'backbone',
-    'bootstrap'
-], function (Backbone, bootstrap) {
+    'bootstrap',
+    'routers/router'
+], function (Backbone, bootstrap, Router) {
+
+    new Router();
 
     Backbone.history.start();
 
