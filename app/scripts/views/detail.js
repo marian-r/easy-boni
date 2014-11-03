@@ -1,17 +1,17 @@
 'use strict';
 
 define([
-    'backbone',
     'lodash',
+    './FadingView',
     'text!../templates/detail.html'
-], function (Backbone, _, template) {
-    return Backbone.View.extend({
+], function (_, FadingView, template) {
+    return FadingView.extend({
         el: '#content',
 
         template: _.template(template),
 
         render: function () {
-            this.$el.html(this.template);
+            this.renderWithFade();
             return this;
         }
     });
