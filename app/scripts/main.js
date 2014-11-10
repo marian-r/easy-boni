@@ -21,10 +21,18 @@ require.config({
 require([
     'backbone',
     'bootstrap',
-    'routers/router'
-], function (Backbone, bootstrap, Router) {
+    'routers/router',
+    'views/app',
+    'collections/restaurants'
+], function (Backbone, bootstrap, Router, AppView, RestaurantsCollection) {
 
-    new Router();
+    var collection = new RestaurantsCollection();
+    collection.load();
+
+    var appView = new AppView({model: collection});
+    appView.render();
+
+    new Router(appView);
 
     Backbone.history.start();
 
