@@ -17,10 +17,12 @@
             Price: <span class="price text-primary"><%= price %></span>
         </div>
         <div class="restaurant-services pull-right">
-            <img src="images/icon-lunch.png" alt="Lunch" title="Lunch"/>
-            <img src="images/icon-wheel-chair.png" alt="Wheel chair"
-                 title="Access for disabled persons"/>
-            <img src="images/icon-vegetarian.png" alt="Vegetarian" title="Vegetarian"/>
+            <%
+            for (var i = 0, len = features.length; i < len; i++) {
+            var feature = features[i];
+            %>
+            <img src="images/<%= feature.iconName %>" alt="<%= feature.name %>" title="<%= feature.title %>"/>
+            <% } %>
         </div>
     </div>
 </div>

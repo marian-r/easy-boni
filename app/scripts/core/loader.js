@@ -2,8 +2,9 @@
 
 define([
     'jquery',
-    '../models/restaurant'
-], function ($, RestaurantModel) {
+    '../models/restaurant',
+    '../models/restaurant-feature'
+], function ($, RestaurantModel, Feature) {
     var url = 'restaurants.json';
 
     return {
@@ -13,6 +14,13 @@ define([
 
                 for (var i in data) {
                     var restaurant = data[i];
+                    var features = data[i].features;
+                    restaurant.features = [];
+                    for (var j = 0, len = features.length; j < len; j++) {
+                        var feature = Feature.createFromID(features[j].id);
+                        restaurant.features.push(feature);
+                    }
+
                     var model = new RestaurantModel(restaurant);
                     array.push(model);
                 }

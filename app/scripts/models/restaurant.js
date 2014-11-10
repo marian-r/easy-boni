@@ -23,10 +23,6 @@ define([
             },
             menu: [],
             features: []
-        },
-
-        initialize: function () {
-
         }
     });
 });
