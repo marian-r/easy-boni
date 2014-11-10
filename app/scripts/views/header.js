@@ -11,6 +11,7 @@ define([
 
         events: {
             'submit #search-form': 'search',
+            'click .order': 'sort'
         },
 
         template: _.template(template),
@@ -48,6 +49,12 @@ define([
         search: function () {
             this.model.set('query', this.$('#search-box').val());
             return false;
+        },
+
+        sort: function (e) {
+            var sortBy = $(e.target).data('sort');
+            this.model.set('order', sortBy);
+            e.preventDefault();
         }
     });
 });

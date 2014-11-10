@@ -8,6 +8,7 @@ define([
 
     var RestaurantsCollection = Backbone.Collection.extend({
         model: Restaurant,
+        comparator: 'name',
 
         load: function () {
             loader.loadRestaurants(this);
