@@ -1,6 +1,6 @@
 <div class="restaurant-header">
     <div class="pull-left">
-        <h1>INDEKS</h1>
+        <h1><%= name %></h1>
     </div>
     <div class="stars-container pull-left">
         <span class="glyphicon glyphicon-star"></span>
@@ -11,7 +11,7 @@
     </div>
 </div>
 <div>
-    <address class="text-muted">Kersnikova ulica 6, Ljubljana &ndash;
+    <address class="text-muted"><%= address %> &ndash;
         <a href="#">show on a map</a>
     </address>
 </div>
@@ -76,27 +76,20 @@
 
         <div class="col-md-6 col-md-pull-6 restaurant-menu">
 
+            <% for (var i = 0, len = menu.length; i < len; i++) { %>
             <div class="panel panel-primary">
                 <div class="panel-body">
                     <ul>
-                        <li>DNEVNA JUHA</li>
-                        <li>GOVEJI BEEF STROGANOFF,MLINCI,ZELENJAVA NA MASLU</li>
-                        <li>SOLATNI BAR</li>
-                        <li>SLADICA</li>
+                        <%
+                        var menuPackage = menu[i];
+                        for (var j = 0, len1 = menuPackage.length; j < len1; j++) {
+                        %>
+                        <li><%= menuPackage[j] %></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
-
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    <ul>
-                        <li>DNEVNA JUHA</li>
-                        <li>GOVEJI BEEF STROGANOFF,MLINCI,ZELENJAVA NA MASLU</li>
-                        <li>SOLATNI BAR</li>
-                        <li>SLADICA</li>
-                    </ul>
-                </div>
-            </div>
+            <% } %>
 
         </div>
 
