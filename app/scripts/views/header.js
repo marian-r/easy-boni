@@ -9,6 +9,10 @@ define([
     return Backbone.View.extend({
         el: '#header',
 
+        events: {
+            'submit #search-form': 'search',
+        },
+
         template: _.template(template),
 
         render: function () {
@@ -39,6 +43,11 @@ define([
             } else {
                 this.$('#nav-order').hide();
             }
+        },
+
+        search: function () {
+            this.model.set('query', this.$('#search-box').val());
+            return false;
         }
     });
 });

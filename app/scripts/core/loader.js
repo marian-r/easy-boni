@@ -26,7 +26,7 @@ define([
                 }
 
                 collection.set(array);
-                console.log("After loading: " + collection.length);
+                collection.trigger('loaded', collection);
             });
         }
     }

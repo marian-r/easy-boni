@@ -22,17 +22,19 @@ require([
     'backbone',
     'bootstrap',
     'routers/router',
+    'routers/filter',
     'views/app',
     'collections/restaurants'
-], function (Backbone, bootstrap, Router, AppView, RestaurantsCollection) {
+], function (Backbone, bootstrap, Router, Filter, AppView, RestaurantsCollection) {
 
     var collection = new RestaurantsCollection();
     collection.load();
 
-    var appView = new AppView({model: collection});
+    var filter = new Filter();
+    var appView = new AppView(collection, filter);
     appView.render();
 
-    new Router(appView);
+    new Router(appView, filter);
 
     Backbone.history.start();
 
