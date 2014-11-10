@@ -22,9 +22,9 @@ define([
 
             var self = this;
 
-            collection.on('loaded', function (newCollection) {
-                console.log('Loaded, length: ' + newCollection.length);
-                _.bind(self.list, self)();
+            collection.once('loaded', function () {
+                var fnName = filter.get('mode');
+                _.bind(self[fnName], self)();
             });
         },
 
@@ -44,8 +44,6 @@ define([
         list: function () {
             var collection = this.collection;
             var filterAttrs = this.filter.attributes;
-
-            console.log('Render, length: ' + collection.length);
 
             if (filterAttrs.query) {
                 collection = collection.filterByQuery(filterAttrs.query);

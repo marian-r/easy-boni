@@ -36,6 +36,7 @@ define([
         },
 
         map: function () {
+            this.filter.set('mode', 'map', {silent: true});
             this.appView.map();
         },
 
@@ -52,7 +53,7 @@ define([
                 query: query,
                 categories: categories,
                 features: features
-            });
+            }, {silent: true});
 
             this.appView.list();
         },
