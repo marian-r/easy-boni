@@ -11,7 +11,7 @@ define([
         template: _.template(template),
 
         render: function () {
-            this.renderWithFade();
+            this.renderWithFade(this.template());
             return this;
         }
     });

@@ -5,11 +5,10 @@ define([
 ], function (Backbone) {
 
     return Backbone.View.extend({
-        renderWithFade: function () {
+        renderWithFade: function (content) {
             var $el = this.$el;
-            var template = this.template;
             $el.fadeOut(function (){
-                $el.html(template);
+                $el.html(content);
                 $el.fadeIn();
             });
             return this;
