@@ -22,7 +22,7 @@ define([
                 var url = attrs.mode + '/' + attrs.order;
 
                 if (attrs.query) {
-                    url += '/q=' + attrs.query;
+                    url += '/q=' + encodeURIComponent(attrs.query);
                 }
                 if (attrs.categories.length) {
                     url += '/c=' + attrs.categories;
