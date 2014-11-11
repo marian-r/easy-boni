@@ -3,9 +3,10 @@
 define([
     'backbone',
     'lodash',
+    'utils/inputValidator',
     'text!../templates/header.html',
     'text!../templates/header-order.html'
-], function (Backbone, _, template, orderTemplate) {
+], function (Backbone, _, validator, template, orderTemplate) {
     return Backbone.View.extend({
         el: '#header',
 
@@ -55,15 +56,26 @@ define([
             }
         },
 
-        search: function () {
-            this.model.set('query', this.$('#search-box').val());
-            return false;
+        search: function (e) {
+            e.preventDefault();
+
+            var $searchBox = this.$('#search-box');
+            var value = $searchBox.val();
+
+            if (validator.validateBannedWords(value)) {
+                $searchBox.parent().removeClass('has-error');
+                this.model.set('query', value);
+
+            } else {
+                $searchBox.parent().addClass('has-error');
+            }
         },
 
         sort: function (e) {
+            e.preventDefault();
+
             var sortBy = $(e.target).data('sort');
             this.model.set('order', sortBy);
-            e.preventDefault();
         }
     });
 });
