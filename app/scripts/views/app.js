@@ -18,7 +18,7 @@ define([
             this.filter = filter;
 
             this.headerView = new HeaderView({model: filter});
-            this.sidebarView = new SideBar();
+            this.sidebarView = new SideBar({model: filter});
 
             var self = this;
 
@@ -45,10 +45,7 @@ define([
             var collection = this.collection;
             var filterAttrs = this.filter.attributes;
 
-            if (filterAttrs.query) {
-                collection = collection.filterByQuery(filterAttrs.query);
-            }
-
+            collection = collection.performFilter(filterAttrs.query, filterAttrs.features);
             collection.comparator = filterAttrs.order;
             collection.sort();
 

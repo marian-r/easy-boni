@@ -47,13 +47,17 @@ define([
             categories = (categories) ? categories.split(',') : [];
             features = (features) ? features.split(',') : [];
 
+            for (var i = 0, len = features.length; i < len; i++) {
+                features[i] = parseInt(features[i]);
+            }
+
             this.filter.set({
                 mode: 'list',
                 order: order || this.filter.get('order'),
                 query: query,
                 categories: categories,
                 features: features
-            }, {silent: true});
+            });
 
             this.appView.list();
         },
