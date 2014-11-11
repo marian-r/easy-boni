@@ -16,8 +16,17 @@ define([
 
         template: _.template(template),
 
+        initialize: function () {
+            var self = this;
+            this.model.once('change', function () {
+                _.bind(self.render, self)();
+            });
+        },
+
         render: function () {
-            this.$el.html(this.template);
+            this.$el.html(this.template({
+                value: this.model.get('query')
+            }));
             return this;
         },
 
