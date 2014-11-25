@@ -27,5 +27,10 @@ nette:
         debugger: true
 
 
+services:
+    authenticator: EasyBoni\Model\Security\Authenticator
+    userManager: EasyBoni\Model\UserManager
+
+
 includes:
     - credentials.neon
