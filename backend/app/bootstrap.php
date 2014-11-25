@@ -9,16 +9,16 @@ require __DIR__ . '/../../vendor/autoload.php';
 $configurator = new Configurator;
 
 //$configurator->setDebugMode(false);
-$configurator->enableDebugger(__DIR__ . '/../log');
+$configurator->enableDebugger(__DIR__ . '/../../log');
 
-$configurator->setTempDirectory(__DIR__ . '/../temp');
+$configurator->setTempDirectory(__DIR__ . '/../../tmp');
 $configurator->createRobotLoader()
     ->addDirectory(__DIR__)
     ->register();
 
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 
-$credentialsConfig = __DIR__ . '/config/credentials.neon';
+$credentialsConfig = __DIR__ . '../../tmp/config/credentials.neon';
 if (!file_exists($credentialsConfig)) {
     $credentials = array(
         'parameters' => array(
