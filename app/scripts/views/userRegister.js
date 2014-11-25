@@ -29,8 +29,8 @@ define([
 
             var self = this;
             $.post($form.attr('action'), $form.serialize(), function (data) {
-                if (data.success) {
-                    self.model.set(data.user);
+                if (data.id) {
+                    self.model.set(data);
                     self.model.trigger('login');
                 }
                 self.$('button[type=submit]').removeClass('disabled');

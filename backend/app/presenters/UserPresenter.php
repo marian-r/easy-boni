@@ -51,10 +51,7 @@ class UserPresenter extends BasePresenter
             $this->terminate(); // exit
         }
 
-        $this->sendJson(array(
-            'success' => true,
-            'user' => $this->user->identity->data
-        ));
+        $this->sendJson($this->user->identity->data);
     }
 
 
