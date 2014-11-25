@@ -29,7 +29,7 @@ define([
                 collection.trigger('loaded', collection);
             });
 
-            $.get('../backend/api/restaurant/ratings', function (data) {
+            $.get('api/restaurant/ratings', function (data) {
 
                 function setRatings(collection) {
                     collection.forEach(function (item) {

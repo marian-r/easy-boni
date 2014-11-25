@@ -6,11 +6,11 @@ define([
 ], function (Backbone, $) {
     return Backbone.Model.extend({
 
-        url: '../backend/api/user/info',
+        url: 'api/user/info',
 
         logout: function () {
             var self = this;
-            $.get('../backend/api/user/logout', function () {
+            $.get('api/user/logout', function () {
                 self.clear();
             }, 'json')
         }

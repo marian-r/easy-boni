@@ -31,7 +31,7 @@ define([
             var value = $star.data('value');
             var model = this.model;
 
-            $.get('../backend/api/restaurant/add-rating', {
+            $.get('api/restaurant/add-rating', {
                 restaurantID : restaurantID,
                 value: value
             }, function (data) {
