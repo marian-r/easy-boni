@@ -3,11 +3,12 @@
         <a href="#detail/<%= id %>" class="restaurant-name"><%= name %></a>
 
         <div class="pull-right">
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star-empty"></span>
+            <%
+            var roundedRating = Math.round(rating);
+            for (var i = 1; i <= 5; i++) {
+            %>
+            <span data-value="<%= i %>" class="star glyphicon <% if (i <= roundedRating) { %>glyphicon-star<% } else { %>glyphicon-star-empty<% } %>"></span>
+            <% } %>
         </div>
     </div>
     <div class="panel-body">

@@ -22,7 +22,10 @@ define([
                 notes: ''
             },
             menu: [],
-            features: []
+            features: [],
+
+            rating: 0,
+            comments: []
         }
     });
 });

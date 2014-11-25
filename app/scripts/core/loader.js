@@ -28,6 +28,26 @@ define([
                 collection.set(array);
                 collection.trigger('loaded', collection);
             });
+
+            $.get('../backend/api/restaurant/ratings', function (data) {
+
+                function setRatings(collection) {
+                    collection.forEach(function (item) {
+                        var restaurantID = item.get('id');
+
+                        if (data[restaurantID]) {
+                            item.set('rating', data[restaurantID]);
+                        }
+                    });
+                }
+
+                if (collection.isEmpty()) { // not yet loaded
+                    collection.once('loaded', setRatings);
+                } else {
+                    setRatings(collection);
+                }
+
+            }, 'json');
         }
     }
 });

@@ -30,6 +30,7 @@ nette:
 services:
     authenticator: EasyBoni\Model\Security\Authenticator
     userManager: EasyBoni\Model\UserManager
+    restaurantsManager: EasyBoni\Model\RestaurantsManager
 
 
 includes:
