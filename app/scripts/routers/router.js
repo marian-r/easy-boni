@@ -1,7 +1,8 @@
 'use strict';
 
 define([
-    'backbone'
+    'backbone',
+    'jquery'
 ], function (Backbone) {
 
     return Backbone.Router.extend({
@@ -9,11 +10,13 @@ define([
             'map': 'map',
             'list(/:order)(/q=:query)(/c=*categories)(/f=*features)': 'list',
             'detail(/:id)': 'detail',
+            'user/:action': 'user',
             '*path': 'map'
         },
 
-        initialize: function (appView, filter) {
+        initialize: function (appView, userView, filter) {
             this.appView = appView;
+            this.userView = userView;
             this.filter = filter;
 
             var self = this;
@@ -32,6 +35,10 @@ define([
                 }
 
                 self.navigate(url, {trigger: true});
+            });
+
+            this.userView.model.on('login', function () {
+                self.navigate('map', {trigger: true});
             });
         },
 
@@ -64,6 +71,21 @@ define([
 
         detail: function (id) {
             this.appView.detail(id);
+        },
+
+        user: function (action) {
+            this.userView.render();
+
+            switch (action) {
+                case 'signin':
+                    this.userView.signIn();
+                    break;
+                case 'register':
+                    this.userView.register();
+                    break;
+                case 'signout':
+                    this.userView.model.logout();
+            }
         }
     });
 });

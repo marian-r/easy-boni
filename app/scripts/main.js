@@ -24,17 +24,24 @@ require([
     'routers/router',
     'routers/filter',
     'views/app',
-    'collections/restaurants'
-], function (Backbone, bootstrap, Router, Filter, AppView, RestaurantsCollection) {
+    'views/user',
+    'collections/restaurants',
+    'models/user'
+], function (Backbone, bootstrap, Router, Filter, AppView, UserView, RestaurantsCollection, User) {
 
     var collection = new RestaurantsCollection();
     collection.load();
 
+    var user = new User();
+    user.fetch();
+
     var filter = new Filter();
-    var appView = new AppView(collection, filter);
+    var appView = new AppView(collection, filter, user);
     appView.render();
 
-    new Router(appView, filter);
+    var userView = new UserView({model: user});
+
+    new Router(appView, userView, filter);
 
     Backbone.history.start();
 

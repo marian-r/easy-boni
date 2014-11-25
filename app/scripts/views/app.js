@@ -13,11 +13,12 @@ define([
     return Backbone.View.extend({
         el: '#app',
 
-        initialize: function (collection, filter) {
+        initialize: function (collection, filter, user) {
             this.collection = collection;
             this.filter = filter;
+            this.user = user;
 
-            this.headerView = new HeaderView({model: filter});
+            this.headerView = new HeaderView(filter, user);
             this.sidebarView = new SideBar({model: filter});
 
             var self = this;

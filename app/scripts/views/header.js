@@ -17,16 +17,23 @@ define([
 
         template: _.template(template),
 
-        initialize: function () {
+        initialize: function (filter, user) {
+            this.filter = filter;
+            this.user = user;
+
             var self = this;
-            this.model.once('change', function () {
+            this.filter.once('change', function () {
                 _.bind(self.render, self)();
             });
+            this.user.on('change', function () {
+                _.bind(self.render, self)();
+            })
         },
 
         render: function () {
             this.$el.html(this.template({
-                value: this.model.get('query')
+                value: this.filter.get('query'),
+                user: this.user.attributes
             }));
             return this;
         },
@@ -64,7 +71,7 @@ define([
 
             if (validator.validateBannedWords(value)) {
                 $searchBox.parent().removeClass('has-error');
-                this.model.set('query', value);
+                this.filter.set('query', value);
 
             } else {
                 $searchBox.parent().addClass('has-error');
@@ -75,7 +82,7 @@ define([
             e.preventDefault();
 
             var sortBy = $(e.target).data('sort');
-            this.model.set('order', sortBy);
+            this.filter.set('order', sortBy);
         }
     });
 });
