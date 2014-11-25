@@ -60,3 +60,7 @@ address {
 }
 .restaurant-comments {
 }
+
+.form-register, .form-signin {
+    max-width: 330px;
+}
