@@ -3,18 +3,18 @@
 use Nette\Application\Routers\Route;
 use Nette\Configurator;
 
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $configurator = new Configurator;
 
 //$configurator->setDebugMode(false);
-if (!file_exists(__DIR__ . '/../../log')) {
-    mkdir(__DIR__ . '/../../log');
+if (!file_exists(__DIR__ . '/../log')) {
+    mkdir(__DIR__ . '/../log');
 }
 
-$configurator->enableDebugger(__DIR__ . '/../../log');
+$configurator->enableDebugger(__DIR__ . '/../log');
 
-$configurator->setTempDirectory(__DIR__ . '/../../tmp');
+$configurator->setTempDirectory(__DIR__ . '/../tmp');
 $configurator->createRobotLoader()
     ->addDirectory(__DIR__)
     ->register();
