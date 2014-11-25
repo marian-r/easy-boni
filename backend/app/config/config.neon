@@ -10,6 +10,7 @@ nette:
         #errorPresenter: Error
 
     debugger:
+        email: grizly21@gmail.com
         maxDepth: 5
 
     session:
@@ -19,7 +20,7 @@ nette:
 
     database:
         default:
-            dsn: '%database.driver%:host=%database.host%;dbname=%database.dbname%'
+            dsn: %database.dsn%
             user: %database.user%
             password: %database.password%
 
@@ -32,6 +33,3 @@ services:
     userManager: EasyBoni\Model\UserManager
     restaurantsManager: EasyBoni\Model\RestaurantsManager
 
-
-includes:
-    - credentials.neon
