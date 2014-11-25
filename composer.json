@@ -8,6 +8,9 @@
       "email": "grizly21@gmail.com"
     }
   ],
+  "require": {
+    "nette/nette": "2.2.*"
+  },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
   },

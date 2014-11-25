@@ -1,0 +1,31 @@
+
+php:
+    date.timezone: Europe/Prague
+    session.cookie_path: /
+    # zlib.output_compression: yes
+
+
+nette:
+    application:
+        #errorPresenter: Error
+
+    debugger:
+        maxDepth: 5
+
+    session:
+        debugger: true
+        autoStart: smart
+        expiration: 0
+
+    database:
+        default:
+            dsn: '%database.driver%:host=%database.host%;dbname=%database.dbname%'
+            user: %database.user%
+            password: %database.password%
+
+    container:
+        debugger: true
+
+
+includes:
+    - credentials.neon

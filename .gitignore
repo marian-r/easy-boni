@@ -1,5 +1,8 @@
 node_modules
 app/bower_components
+backend/app/config/credentials.neon
+backend/log
+backend/temp
 dist
 vendor
 .tmp
