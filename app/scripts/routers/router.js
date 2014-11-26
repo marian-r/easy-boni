@@ -20,7 +20,7 @@ define([
             this.filter = filter;
 
             var self = this;
-            this.filter.on('change', function (newFilter) {
+            this.filter.on('change', function (newFilter, options) {
                 var attrs = newFilter.attributes;
                 var url = attrs.mode + '/' + attrs.order;
 
@@ -34,7 +34,9 @@ define([
                     url += '/f=' + attrs.features;
                 }
 
-                self.navigate(url, {trigger: true});
+                // not call router function (trigger) if change was made by router
+                var trigger = !(options && options.router);
+                self.navigate(url, {trigger: trigger});
             });
 
             this.userView.model.on('login', function () {
@@ -48,8 +50,6 @@ define([
         },
 
         list: function (order, query, categories, features) {
-            console.log('Order: ' + order);
-            console.log('Query: ' + query);
 
             categories = (categories) ? categories.split(',') : [];
             features = (features) ? features.split(',') : [];
@@ -64,7 +64,7 @@ define([
                 query: query,
                 categories: categories,
                 features: features
-            });
+            }, {router: true});
 
             this.appView.list();
         },

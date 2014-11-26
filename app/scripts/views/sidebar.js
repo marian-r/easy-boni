@@ -53,7 +53,7 @@ define([
             var $checkbox = $(e.target);
             var value = parseInt($checkbox.val());
             var filter = this.model;
-            var features = filter.get('features');
+            var features = _.clone(filter.get('features')); // clone to fire the change event after setting
 
             if ($checkbox.is(':checked')) {
 
@@ -72,8 +72,6 @@ define([
             }
 
             filter.set('features', features);
-            filter.trigger('change', filter);
-            filter.trigger('change:features', filter);
         }
     });
 });
