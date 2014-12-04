@@ -14,6 +14,8 @@ require.config({
         lodash: '../bower_components/lodash/dist/lodash.compat',
         requirejs: '../bower_components/requirejs/require',
         'text': '../bower_components/requirejs-text/text',
+        propertyParser : '../bower_components/requirejs-plugins/src/propertyParser',
+        async: '../bower_components/requirejs-plugins/src/async',
         underscore: '../bower_components/lodash/dist/lodash'
     },
     packages: []
