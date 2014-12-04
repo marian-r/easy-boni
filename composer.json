@@ -17,11 +17,11 @@
   "scripts": {
     "post-install-cmd": [
       "PATH=`pwd`/vendor/node/bin:$PATH ./node_modules/bower/bin/bower install",
-      "php -f ./backend/app/env-install.php"
+      "php -f ./backend/env-install.php"
     ],
     "post-update-cmd": [
       "PATH=`pwd`/vendor/node/bin:$PATH ./node_modules/bower/bin/bower install",
-      "php -f ./backend/app/env-install.php"
+      "php -f ./backend/env-install.php"
     ]
   }
 }

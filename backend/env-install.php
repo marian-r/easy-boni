@@ -2,7 +2,7 @@
 
 use Nette\Neon\Neon;
 
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 echo 'Checking credentials file' . PHP_EOL;
 
