@@ -37,7 +37,7 @@ define([
         },
 
         map: function () {
-            var mapView = new MapView();
+            var mapView = new MapView({collection: this.collection});
             mapView.render();
             this.headerView.setActiveLink('link-map');
         },
