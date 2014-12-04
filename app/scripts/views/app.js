@@ -47,7 +47,9 @@ define([
             var filterAttrs = this.filter.attributes;
 
             collection = collection.performFilter(filterAttrs.query, filterAttrs.features);
-            collection.comparator = filterAttrs.order;
+            collection.comparator = (filterAttrs.order !== 'rating') ? filterAttrs.order : function (model) {
+                return - model.get('rating')
+            };
             collection.sort();
 
             var listView = new ListView({collection: collection});
