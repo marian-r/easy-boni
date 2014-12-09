@@ -78,14 +78,15 @@ How to run the project
     - Open terminal in the root directory.
     - Run command to install PHP dependencies:
         
-        composer install
+            composer install
+        
     - Run command to install Bower:
         
-        npm update
+            npm update
         
     - Run command to install Bower dependencies: 
         
-        node_modules/.bin/bower install
+            node_modules/.bin/bower install
  
 3. **Run the application** 
     
