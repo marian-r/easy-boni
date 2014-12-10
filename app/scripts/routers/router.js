@@ -85,6 +85,7 @@ define([
                     break;
                 case 'signout':
                     this.userView.model.logout();
+                    this.navigate("map", {trigger: true})
             }
         }
     });
