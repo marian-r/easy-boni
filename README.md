@@ -31,6 +31,8 @@ About technologies
 
 This is a Single Page Application developed using Backbone.js with PHP back-end build upon Nette Framework.
 
+NOTE: Additional java version can be found here: <https://github.com/marian-r/easy-boni-jsf>
+
 ### Front-end
 
 - Backbone.js
