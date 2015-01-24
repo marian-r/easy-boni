@@ -1,6 +1,12 @@
 EasyBoni
 =========
 
+This version is a Single Page Application with PHP backend. See also other versions:
+
+- Java with JSF, JAX-RS, Spring IoC, JPA: <https://github.com/marian-r/easy-boni-jsf>
+- ASP.NET MVC with Entity Framework: <https://github.com/marian-r/easy-boni-aspnet>
+- Ruby on Rails: <https://github.com/marian-r/easy-boni-rails>
+
 What is it?
 -----------
 
@@ -30,8 +36,6 @@ About technologies
 ------------------
 
 This is a Single Page Application developed using Backbone.js with PHP back-end build upon Nette Framework.
-
-NOTE: Additional java version can be found here: <https://github.com/marian-r/easy-boni-jsf>
 
 ### Front-end
 
